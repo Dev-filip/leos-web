@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matej Leos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Pixels&family=Tiny5&display=swap" rel="stylesheet">
 </head>
@@ -28,18 +28,14 @@
 
     <script>
         (function() {
-            let score = 0;
+            let score = getCookie("Bramburky") ? parseInt(getCookie("Bramburky")) : 0;
             let clickMultiplier = 1;
             let autoClickerCount = 0;
             let autoClickerSpeed = 1000;
             
-            window.addPoints = function(points) {
-                score += points;
-                updateScore();
-            };
-
             function updateScore() {
                 document.getElementById("score").textContent = score;
+                setCookie("Bramburky", score, 365);
             }
 
             document.getElementById("clickableImage").addEventListener("click", function() {
@@ -88,10 +84,31 @@
                     }
                 }, autoClickerSpeed);
             }
-            setInterval(() => {
-                console.clear();
-                console.log("KAM CUMIS LOL");
-            }, 1000);
+
+            function setCookie(name, value, days) {
+                let d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+
+            function getCookie(name) {
+                let cname = name + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(cname) == 0) {
+                        return c.substring(cname.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            updateScore();
         })();
     </script>
 </body>
