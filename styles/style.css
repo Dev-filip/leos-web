@@ -1,9 +1,9 @@
-
 body {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.925);
     color: white;
     overflow-x: hidden;
+    font-family: 'Rubik Pixels', sans-serif;
 }
 
 img {
@@ -22,60 +22,70 @@ img:active {
     font-size: 30px;
     font-weight: bold;
     color: rgb(255, 254, 254);
-    font-family: 'Rubik Pixels', sans-serif;
 }
 
-
-.upgrades {
-    border-color: #bf1fff;
-    border-radius: .4ch;
-    width: 50ch;
-    height: 10ch;
-
-    margin-left: 2ch;
-
-    
+.modern-button {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 117, 140, 0.3);
 }
 
-h1 {
-    font-family: 'Tiny5', sans-serif; 
-    font-size: 12ch;
+.modern-button:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    transform: scale(1.1);
 }
 
-.particle {
-    position: absolute;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-    animation: fadeAndMove 3s ease-out forwards;
-    pointer-events: none;
+.modern-button:active {
+    transform: scale(0.95);
 }
 
-.goal {
-    position: absolute;
-    font-size: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ffc039;
-    animation: fadeAndMove 3s ease-out forwards;
-    pointer-events: none;
+.upgrade-button {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 10px rgba(91, 134, 229, 0.3);
 }
 
-.goal1 {
-    position: absolute;
-    font-size: 12ch;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ff4747;
-    animation: fadeAndMove 6s ease-out forwards;
-    pointer-events: none;
+.upgrade-button:hover {
+    background: linear-gradient(135deg, #5b86e5, #36d1dc);
+    transform: scale(1.05);
 }
 
-@keyframes fadeAndMove {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
+.upgrade-button:active {
+    transform: scale(0.95);
+}
+
+.shop-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.shop-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ff758c;
 }
